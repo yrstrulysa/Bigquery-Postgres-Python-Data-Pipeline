@@ -1,0 +1,24 @@
+name: Automated Data Pipeline
+
+on:
+  schedule:
+    - cron: '0 8,14 * * *'  # Schedule to run at 08:00 and 14:00
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9  # Specify the version of Python you want to use
+        
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # Replace with the command to install your dependencies
+      
+    - name: Run data pipeline
+      run: C:\Users\Anthony.DESKTOP-ES5HL78\Documents\Scrapy\projects\ap.py  # Replace with the command to run your Python script
